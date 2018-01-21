@@ -15,7 +15,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="Find.php" role="button" aria-haspopup="true" aria-expanded="false">Find</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../project/Find.php">Find TutorClass</a>
+                        <a class="dropdown-item" href="Find.php">Find TutorClass</a>
                         <a class="dropdown-item" href="createclass.php">Create a Class</a>
 
                     </div>
@@ -33,10 +33,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">$username</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../project/viewProfile.php?user_id=<?= $_SESSION['user_id']; ?>">Profile</a>
-                        <a class="dropdown-item" href="../project/edit_profile.php?user_id=<?= $_SESSION['user_id']; ?>">Edit Settings</a>
+                        <a class="dropdown-item" href="../SaifMuntaser/viewProfile.php?user_id=<?= $_SESSION['user_id']; ?>">Profile</a>
+                        <a class="dropdown-item" href="../SaifMuntaser/edit_profile.php?user_id=<?= $_SESSION['user_id']; ?>">Edit Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../project/logout.php">Logout</a>
+                        <a class="dropdown-item" href="../SaifMuntaser/logout.php">Logout</a>
                     </div>
                 </li>
 

@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 require_once 'classes/Database.php';
 require_once 'classes/User.php';
@@ -25,7 +25,7 @@ if($_SESSION['logged_in'] != 1){
         //$_SESSION['message'] = "error in the articles page!";
         //header("Location: error.php");
     }
-      
+
 }
 
 ?>
@@ -48,7 +48,7 @@ if($_SESSION['logged_in'] != 1){
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/scrolling.css" rel="stylesheet">
     <!-- font awesome -->
     <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -63,187 +63,137 @@ if($_SESSION['logged_in'] != 1){
 
 </head>
 
-<body id="profile-body">
+<body class="modified-text">
 
 
+<?php
+include_once("header.php")
+?>
 
 
-
-
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav1">
-
-
-    <div class="container">
-
-        <a class="navbar-brand " href="#page-top">Lets Educate Each Other</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span></button>
-
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link " href="#Home">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link " href="#Find">Find</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#Q&A">Q&A</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#Articles">Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#contact">contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm" href="#">Login</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Page Header -->
-<header class="masthead">
-    <img src="img/Untitled.jpg" class="img-fluid">
-</header>
+<div class="myarticleimage">
+    <img src="img/Untitled.jpg" class="image-responsive">
+</div>
 
 <!-- Main Content -->
 
-<div class="row">
+
 <div class="container-fluid">
     <div class="row">
+
+
         <div class="col-md-9">
-        <div class="col-lg-8 col-md-10 mx-auto">
+
+            <div class="col-md-12">
+                <div class="filter" style="margin-top: 15px;padding-left: 330px;">
+          <span style="font-size:35px;">Please select the Category : <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                <option selected style="font-size:20px;"> Choose...</option>
+                <option value="1">Information Techology</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select></span></div>
+                <hr>
 
 
-            <hr>
-
-            <?php
-                foreach($articles as $name) { 
+                <?php
+                foreach($articles as $name) {
                     $article_owner = new User;
                     $article_owner->getUserInfoFromDatabase($name['article_owner']);
                     ?>
-                <div class="post-preview">
-                    <div class="row">
+                    <div class="post-preview">
+                        <div class="row">
 
-                        <div class="col-md-3 course-img" >
-                            <img src="img/Logo.png" class="img-rounded" style="width: 120px;" style="height: 120px;" >
-                         <?php echo  '<div class="course-block-name" ><a id="111" href="viewProfile.php?user_id='. $article_owner->getUser_id() .'">'. $article_owner->getUsername() . '</a></div>';?>
-                            <div class="course-stars card-stars1">
-                                <div class="review-block-rate">
+                            <div class="col-md-2 course-img" >
+                                <img src="img/15356507_1364357016940040_4438434916611401275_n.jpg" class="rounded-circle" style="margin-left:25px; margin-bottom: 5px;height: 150px; width: 150px;"  >
+                                <?php echo  '<div class="text-center" style="font-size: 25px;padding-left: 20px;" ><a id="111" href="viewProfile.php?user_id='. $article_owner->getUser_id() .'">'. $article_owner->getUsername() . '</a></div>';?>
+                                <div class="course-stars card-stars1 text-center" style="padding-left: 20px;">
+                                    <div class="review-block-rate" >
 
-                                    <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
 
-                                    <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
 
-                                    <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
 
-                                    <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
 
-                                    <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
 
+                                    </div>
                                 </div>
+
+
                             </div>
 
-                            <div class="course-block-date"><?= $name['dateOfCreation'];?></div>
-                        </div>
-
-                        <div class="col-md-9">
-
-                           <?php 
-                            echo '<a href="articlePage.php?article_id='. $name['article_id'] .'">
-                                <h2 class="post-title">'
+                            <div class="col-md-9">
+                                <?php
+                                $articledescription= strip_tags($name['article_body']);
+                                echo '<a href="articlePage.php?article_id='. $name['article_id'] .'">
+                                <h2 class="post-title bold articlefontH">'
                                     . $name['article_title'].
-                                '</h2>
+                                    '</h2>
 
-                                <h3 class="post-subtitle">'
-                                    .$name['article_body'].
-                                '</h3>
-                            </a>';
+                                <h3 class="post-subtitle articlefont">'
+                                    .substr("$articledescription",0, 250).
+                                    '</h3>
+                            </a>'
 
-                            ?>
+                                ?>
 
 
-                            <h6 class="card-subtitle mb-2 text-muted">Tags: <span class="badge badge-primary">PHP</span></h6>
-                            <div class="thumbsup float-right">
-                                $0<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                                $0<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <h6 class="card-subtitle mb-2 text-muted" style="margin-top: 20px;">Tags: <span class="badge badge-primary">PHP</span></h6><div class=" text-muted float-right" style="padding-left: 20px;"><?= $name['dateOfCreation'];?></div>
+
+                                <div class="articlebutton ">
+                                    <button type="button" class="btn btn-primary"><?php echo '<a href="articlePage.php?article_id='. $name['article_id'] .'">View Article</a>'; ?></button>
+                                </div>
+
                             </div>
-                            <div class="articlebutton">
-                                <?php echo '<a href="articlePage.php?article_id='. $name['article_id'] .'">View Article</a>'; ?>
-                            </div>
+
 
                         </div>
-
-
                     </div>
+                    <Br>
+                <?php } ?>
+                <hr>
+
+            </div>
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item">
+                    <a class="page-link" href="#">&larr; Older</a>
+                </li>
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">Newer</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2 articleimage">
+            <div class="position-fixed ">
+
+                <div class="container">
+                    <div class="img">
+                        <img src="img/icon-articles.png" style="padding-bottom: 10px;">
+                    </div>
+
+                    <a href="post_article.php"> <button type="button" class="btn btn-danger" style="margin-left: 35px;"> Write an Article</button></a>
+
                 </div>
-                <Br>
-                <?php } ?>         
-            <hr>
-
+            </div>
         </div>
 
-    </div>
 
-        <div class="col-md-3 articleimage">
-            <div class="container articlecontainer1">
-        <img src="img/icon-articles.png"><br>
-            <button type="button" class="btn btn-danger"> Write an Article</button>
-        </div>
+        <hr>
+        <!-- Pager -->
 
-    </div>
-
-            <hr>
-            <!-- Pager -->
-
-    </div>
-</div>
-</div>
-
-
-           <br>
-             <!--<h2> Insert your Article:</h2>
-            <div id="summernote"></div>
-            <script>
-                $('#summernote').summernote({
-                    placeholder: 'Write your article here.',
-                    tabsize: 2,
-                    height: 100,
-                    toolbar: [
-                        // [groupName, [list of button]]
-                        ['style', ['bold', 'italic', 'underline', 'clear']],
-                        ['font', ['strikethrough', 'superscript', 'subscript']],
-                        ['fontsize', ['fontsize']],
-                        ['color', ['color']],
-                        ['para', ['ul', 'ol', 'paragraph']],
-                        ['height', ['height']],
-                        ['table', ['table']]
-                    ]
-                });
-            </script>
-            <br>
-
-        <button type="button" class="btn btn-primary"> Submit</button>
-
-
-        </div>
     </div>
 </div>
 
 
-<hr>
+
+<br>
+
 <!-- Footer -->
-<footer class="py-5 bg-dark myfooter">
-    <div class="container">
-        <p class="m-0 text-center text-white">LEEO</p>
-    </div>
+<?php
+include_once("Footer.php");
+?>
 </body>
 </html>
