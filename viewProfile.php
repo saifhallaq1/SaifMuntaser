@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 require_once 'classes/Database.php';
 require_once 'classes/User.php';
@@ -8,13 +8,12 @@ session_start();
 
 if($_SESSION['logged_in'] != 1){
     $_SESSION['message'] = "You must log in before viewing your profile page!";
-  header("location: error.php");
+    header("location: error.php");
 }else{
-    
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {   
+
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         if ( isset($_GET['user_id']) && !empty($_GET['user_id'])) {
-
             if($_GET['user_id'] == $_SESSION['user_id']){
                 // give user more permissions to edit hi peofile
                 $viewUser = new User;
@@ -44,21 +43,21 @@ if($_SESSION['logged_in'] != 1){
                 $about = $viewUser->getAbout();
             }
 
-            
+
         }else{
-            header("location: error.php");
+            header("Location: error.php");
         }
 
     }
-     
-    
 
-    
-       
+
+
+
+
 }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,291 +70,248 @@ if($_SESSION['logged_in'] != 1){
 
     <title>Profile Page</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <?php
+    include_once('header1.php');
 
-    <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
-    <!-- font awesome -->
-    <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    ?>
 
 
 </head>
 
-<body id="profile-body">
+<body>
 
+<?php
+include_once('header.php');
 
-
-
-
-
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav1">
-
-
-    <div class="container">
-
-        <a class="navbar-brand " href="#page-top">Lets Educate Each Other</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span></button>
-
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link " href="#Home">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link " href="#Find">Find</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#Q&A">Q&A</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#Articles">Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#contact">contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm" href="#">Login</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<br>
-<br>
-<br>
-
+?>
 <div class="container">
-    <div class="row profile">
-        <div class="col-md-3">
-            <div class="profile-sidebar">
-                <div class="profile-userpic">
-                    <img src="http://guarddome.com/assets/images/profile-img.jpg" alt="not working" class="img-fluid rounded-circle">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-picture-row">
+
+                <div class="profile-picture">
+
+                    <img src="../project/img/15356507_1364357016940040_4438434916611401275_n.jpg" alt="not working" class="img-fluid ">
 
                 </div>
-                <div class="profile-user-title">
-                    <div class="profile-username">
-                        <?php echo $username;?>
+                <hr>
+
+                <div class="edit-button">
+
+                    <input type="button" class="btn btn-danger" value="Edit Profile Settings" style="padding-right: 20px;margin-left: 70px;margin-bottom: 20px">
+
+                </div>
+
+
+                <div class="profile-info">
+
+
+                    <div class="padding-info">
+
+                        <span id="Age"><i class="fa fa-birthday-cake modifi" aria-hidden="true"> <?php echo $DOB; ?></i></span>
+
+                    </div>
+
+                    <div class="padding-info">
+
+                        <span id="Gender"><i class="fa fa-venus-mars" aria-hidden="true"> Male</i></span>
+
+                    </div>
+
+                    <div class="padding-info">
+
+                        <i class="fa fa-bolt" aria-hidden="true"><?php echo $degree; ?>   Degree</i>
+
+                    </div>
+
+                    <div class="padding-info">
+
+                        <i class="fa fa-phone" aria-hidden="true"><?php echo $phone; ?> </i>
+
                     </div>
 
 
-                </div>
-                <div class="profile-use-menu">
-<br>
-                    <ul class="nav">
-                        <li class="active"><a href=""><i class="fa fa-address-card" aria-hidden="true">Overview</i></a></li>
+                    <div class="padding-info">
 
-                    </ul>
-                    <br>
-                    <div class="jumbotron rating-block">
-                        <h4>Average user rating</h4>
-                        <h2 class="bold padding-bottom-7">4.3 <small>/ 5</small></h2>
-                        <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                        </button>
+                        <span id="uni">  <i class="fa fa-university" aria-hidden="true"> <?php echo $university; ?></i></span>
+
                     </div>
 
                 </div>
+
             </div>
-
         </div>
+
         <div class="col-md-8">
 
-            <h3><b><center>About</center></b></h3><br>
-
-
-            <?php echo $about; ?>
-
-<br>
-            <br>
-
-            <div class="jumbotron ">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3><i class="fa fa-venus-mars" aria-hidden="true"><b> Gender</b></i></h3>
-
-                        <div class="Gender">
-                            <?php echo $gender; ?>
-                        </div>
-
-
-                    </div>
-
-                    <div class="col-md-6">
-                        <h3><i class="fa fa-bolt" aria-hidden="true"><b> Degree</b></i></h3>
-
-                        <div class="degree">
-                            <?php echo $degree; ?>
-                        </div>
-
-
-                    </div>
-
-
-
-                </div>
-
+            <div class="username1">
                 <br>
+                <div class="row">
 
 
+                    <div class="col-md-6">
 
+                        <i class="fa fa-user-circle fa-2x"  aria-hidden="true"> <span style="font-family: 'Open Sans', sans-serif;"> <?php echo $username;?></span></i>
+                    </div>
 
+                    <div class="col-md-6">
+
+                        <div class="course-stars card-stars1">
+                            <div class="review-block-rate float-right">
+
+                                <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                                <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                                <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                                <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                                <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                            </div></div>
+                    </div>
+
+                </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <h3><i class="fa fa-birthday-cake" aria-hidden="true"><b> Age</b></i></h3>
 
-                        <div class="Age">
-                            <?php echo $DOB; ?>
-                        </div>
-
+                        <span id="lastseen"><i class="fa fa-spinner"  aria-hidden="true"> <span style="font-family: 'Open Sans', sans-serif;">Last seen: 12/12/2012</i></span>
 
                     </div>
 
                     <div class="col-md-6">
-                        <h3><i class="fa fa-university" aria-hidden="true"><b> University</b></i></h3>
 
-                        <div class="university">
-                            <?php echo $university; ?>
-                        </div>
-
+                        <span id="lastseen"><i class="fa fa-check"  aria-hidden="true"> <span style="font-family: 'Open Sans', sans-serif;">Member since: 14/12/2014</i></span>
 
                     </div>
 
-
-
                 </div>
+
+                <div class="row">
+
+                    <div class="col-md-12 tagsbox">
+                        <div class="tags">
+
+                            <h3 class="text-muted modified-text"> Tags:</h3>
+                            <h5 class="modified-text"><span class="badge badge-primary ">Caculus</span>
+                                <span class="badge badge-primary">PHP</span>
+                                <span class="badge badge-primary">Java</span>
+                                <span class="badge badge-primary">English</span></h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+
+            <h2  class="modified-text"><center>About Me</center></h2>
+            <hr>
+            <div class="about profilebox">
+                <p>   <?php echo $about; ?> </p>
+            </div>
+
+            <br>
+            <h2 class="modified-text"><center>Reviews</center></h2>
+            <hr>
+            <div class="row review-block101" >
+                <div class="col-sm-3">
+                    <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                    <div class="review-block-name modified-text"><a href="#">Muntaser Mraisi</a></div>
+                    <div class="review-block-date modified-text">January 29, 2016<br/>1 day ago</div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="course-stars card-stars1">
+                        <div class="review-block-rate float-right">
+
+                            <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                            <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                            <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                            <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                            <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+
+                        </div></div>
+                    <div class="review-block-title modified-text">this was nice in buy</div>
+                    <div class="review-block-description modified-text"> he is really good at teaching i would take another classes with him again</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <br>
 
+<?php
 
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <h3><i class="fa fa-book" aria-hidden="true"><b> Offered Courses</h3></i>
-
-                        <div class="courses">
-
-                            <i class="fa fa-check" aria-hidden="true"> Calculus</i><br>
-
-                            <i class="fa fa-check" aria-hidden="true"> German</i><br>
-                            <i class="fa fa-check" aria-hidden="true"> Arabic</i>
-
-
-                        </div>
-
-
-                    </div>
-
-                   <div class="col-md-6">
-
-                       <div class="hobbies">
-                       <h3><i class="fa fa-futbol-o" aria-hidden="true"><b>Hobbies</b></i></h3>
-
-                       <?php echo $hobbies; ?>
-
-
-                       </div>
-                   </div>
-
-
-                </div>
-
-                    </div>
-
-            <h3><center><b> Reviews</b></center></h3>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr/>
-                    <div class="review-block">
-                        <div class="row" >
-                            <div class="col-sm-3">
-                                <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-                                <div class="review-block-name"><a href="#">Muntaser Mraisi</a></div>
-                                <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="review-block-rate">
-                                    <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                    </button>
-                                </div>
-                                <div class="review-block-title">this was nice in buy</div>
-                                <div class="review-block-description"> he is really good at teaching i would take another classes with him again</div>
-                            </div>
-                        </div>
-                        <hr/>
-        </div>
-    </div>
-</div>
-
-                </div>
-
-
-        <div class="col-md-1">
-
-
-        </div>
+include("Footer.php");
+?>
 
 
 
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<!-- Footer -->
-<footer class="py-5 bg-dark myfooter">
-    <div class="container">
-        <p class="m-0 text-center text-white">LEEO</p>
-    </div>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
 
 </body>
-
 </html>
