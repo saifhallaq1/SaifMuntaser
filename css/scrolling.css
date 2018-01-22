@@ -325,7 +325,7 @@ single {
 }
 
 .studentstable{
-width: 700px;
+  width: 700px;
 }
 #myModal1
 .buttton{
@@ -345,7 +345,7 @@ width: 700px;
 }
 .submitbutton{
 
-margin-left: 10px;
+  margin-left: 10px;
   width: 120px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -375,22 +375,22 @@ margin-left: 10px;
 .course-img{
   max-width: 100%;
   height: auto;
-margin-top: 10px;
+  margin-top: 10px;
   padding-left: 60px;
 
 }
 
 
 .courseBtns{
-padding-left: 70px;
-margin-top: 40px;
+  padding-left: 70px;
+  margin-top: 40px;
 }
 .fa-star{
   color: gold;
 
 }
 .review-block-rate1{
-padding-left: 17px;
+  padding-left: 17px;
 }
 .hourlyRate{
 
@@ -723,18 +723,18 @@ padding-left: 17px;
 }
 
 .row1{
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
 
 }
 
 #PPH{
-    width: 100px;
+  width: 100px;
 }
 #CourseDescription{
-    max-width: 100%;
-    height: 150px;
+  max-width: 100%;
+  height: 150px;
 
 }
 @media (max-width:400px){
@@ -788,7 +788,7 @@ padding-left: 17px;
 }
 
 .course-stars{
-padding-top: 5px;
+  padding-top: 5px;
   padding-left: 50px;
 }
 .bootstrap-tagsinput {
@@ -935,7 +935,7 @@ header.masthead {
 
   padding-bottom: 0px;
   margin-bottom:0px;
- margin-top: 50px;
+  margin-top: 50px;
 }
 .review > a {
   color: #212529; }
@@ -999,7 +999,7 @@ header.masthead {
 
   margin: 1px;
   padding: 1px;
-width: 530px;
+  width: 530px;
   height: 300px;
   resize: none;
   border: 1px solid #ccc;
@@ -1082,8 +1082,7 @@ footeredited{
 
 }
 .footerdiv{
-  padding-left: 240px;
-
+  
 }
 
 .footeratr{
@@ -1145,7 +1144,7 @@ footeredited{
   font-family: 'Josefin Sans', sans-serif;
 }
 .tagsbox{
-padding-top: 30px;
+  padding-top: 30px;
 }
 
 .review-block101{
@@ -1183,13 +1182,13 @@ textarea {
 }
 
 #ratingbox1 {
-    border: 2px solid #f7f7f7;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-radius: 25px;
-    width: 700px;
+  border: 2px solid #f7f7f7;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 25px;
+  width: 700px;
 
-  }
+}
 
 #ratingbox2 {
   border: 2px solid #f7f7f7;
@@ -1258,7 +1257,7 @@ textarea {
 
   padding-top: 7px;
 
-  }
+}
 
 .firstrowOfAnswers{
 
@@ -1349,12 +1348,12 @@ textarea {
 
 }
 .findbar{
- width: 1200px;
+  width: 1200px;
   height: 200px;
   background-color: #f0f0f0;
   opacity: 1;
   border-radius: 25px;
-background-color: rgba(240,240,240,0.5);
+  background-color: rgba(240,240,240,0.5);
 
 }
 .whitecolor{
