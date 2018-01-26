@@ -59,16 +59,16 @@ include_once('header.php');
 
 ?>
 
-            <div class="container-fluid findContiner">
-                <div class="content" style="margin-left: 400px; padding-top: 100px; ">
-                    <center><h1><b> <span style="color: white;margin-right: 500px;"> Find Your Tutoring Class</span></b></h1></center>
-                    <p style="color: white; margin-left: 200px;"> You can Seach for your class either by typing its name or search it through category</p>
+            <div class="container-fluid findContiner " >
+                <div class="content" style="margin-left: auto; padding-top: 30px;margin-right: auto; width: 700px; ">
+                    <center><h4><b> <span style="color: white; width: 100%;"> Find Your Tutoring Class</span></b></h4></center>
+                   <center><p style="color: white; width: 100%;"> You can Seach for your class either by typing its name or search it through category</p></center>
                     <div class="findbar">
 
 
-                <div class="row ">
+                <div class="row">
 
-                    <div class="col-md-8" style="margin-top: 70px; margin-left: 10px">
+                    <div class="col-md-8" style="margin-top:30px;margin-left: 10px">
 
                         <input id="searchinput"  value=" Search for Your Course"type="text">
 
@@ -78,8 +78,8 @@ include_once('header.php');
                         setTimeout(function(){ showUser("AllCategories"); },1000);
                     </script>
 
-                    <div class="col-md-2" style="margin-top: 70px; margin-left: 10px; height: 100px;width: 100px;">
-                        <select name="categorylist" onchange="showUser(this.value)" class="form-control form-control-lg" style="height: 60px; border-radius: 25px; width: 300px;">
+                    <div class="col-md-2" style="margin-top: 30px; margin-left: 0px; height: 100px;width: 100px;">
+                        <select name="categorylist" onchange="showUser(this.value)" class="form-control form-control-lg" style="height: 40px; border-radius: 25px; width: 200px;">
                             <option value="AllCategories" selected >All Categories</option>
                             <?php
                             foreach($categories as $categoryRow) {
@@ -118,7 +118,7 @@ include_once('header.php');
 
             <div class="container">
 
-                <button type="button" class="btn btn-danger" style="margin-left: 35px;"> Create A Class </button>
+                <a href="createclass.php"><button type="button" class="btn btn-danger" style="margin-left: 35px;"> Create A Class </button></a>
 
             </div>
         </div>

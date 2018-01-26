@@ -30,8 +30,7 @@ include_once("header.php")
 <!-- page content -->
 
 
-<br>
-<br>
+
 <br>
 <br>
 <br>
@@ -43,7 +42,7 @@ include_once("header.php")
     <div class="row">
 
         <div class="col-lg-3 mx-auto photorow">
-            <img src="/new project/img/contact.png" id="questionimage" class="rounded float-left" alt="myimg">
+            <img src="/SaifMuntaser/img/contact.png" id="questionimage" class="rounded float-left" alt="myimg">
         </div>
 
       <div class="col-lg-9 mx-auto">
@@ -95,36 +94,14 @@ include_once("header.php")
 
     </div>
 </div>
+</div>
+<br>
+<br>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Footer -->
-<footer class="py-5 bg-dark myfooter fixed-bottom ">
-    <div class="container">
-        <p class="m-0 text-center text-white">lEEO</p>
-    </div>
-    <!-- /.container -->
-</footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<?php
+include_once('Footer.php');
+?>
 
 </body>
 

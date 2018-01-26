@@ -41,7 +41,7 @@ if($_SESSION['logged_in'] != 1){
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html id="qandapagezoom" lang="en">
 
 <head>
 
@@ -55,6 +55,7 @@ if($_SESSION['logged_in'] != 1){
     <?php
     include_once("header1.php")
     ?>
+
 
 
 </head>
@@ -73,7 +74,7 @@ include_once('header.php');
 <div class="container-fluid container-fluid1" id="firstColumQA">
 
     <div class="row" id="rowQA">
-        <div class="col-md-3 category-edited">
+        <div class="col-md-2 category-edited">
             <div class="category1">
                 <div class="category2 ">Category</div>
             </div>
@@ -97,12 +98,12 @@ include_once('header.php');
             </div>
         </div>
         <!-- Question&Answer Header -->
-        <div class="col-md-6">
+        <div class="col-md-6 ">
 
 
-            <h1 class="my-6">Question and Answers(Q&A)<br>
+            <p style="font-size: 1.7rem;">Question and Answers(Q&A)<br>
                 <small>LEEO.Social Question and Answer Community</small>
-            </h1>
+            </p>
             <hr>
             <br>
             <!-- question list -->
@@ -130,13 +131,13 @@ include_once('header.php');
         </div>
 
         <!-- Sidebar Widgets Column -->
-        <div class="col-md-3 ">
+        <div class="col-md-2 ">
 
             <!-- Search Widget -->
 
 
             <!-- Categories Widget -->
-            <button class="btn btn-danger questionbutton" style="width: 300px"  type="button"  data-toggle="modal" data-target="#myModal"><i>Ask a Question</i><i class="fa fa-question fa-lg" aria-hidden="true"></i> </button></h5>
+            <button class="btn btn-danger questionbutton" style="width: 100%;"  type="button"  data-toggle="modal" data-target="#myModal"><i>Ask a Question</i><i class="fa fa-question fa-lg" aria-hidden="true"></i> </button></h5>
 
 
 
@@ -211,7 +212,7 @@ include_once('header.php');
                         </div>
 
                         <div class="form-group">
-                        <input type="submit" class="btn btn-warning btn-block" name="update" value="Update"/>                                                
+                        <input type="submit" class="btn btn-warning btn-block" name="update" value="Update"/>
                         </div>
 
                     </form>

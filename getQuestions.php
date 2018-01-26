@@ -80,15 +80,15 @@ if($_SESSION['logged_in'] != 1){
 
                                                 <div class="review-block-rate">
 
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star editedstars2" aria-hidden="true"></span>
 
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star editedstars2" aria-hidden="true"></span>
 
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star editedstars2" aria-hidden="true"></span>
 
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star editedstars2" aria-hidden="true"></span>
 
-                                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                                    <span class="fa fa-star editedstars2" aria-hidden="true"></span>
 
                                                 </div>
                                             </div>
@@ -96,11 +96,11 @@ if($_SESSION['logged_in'] != 1){
                                     </div>
                                 </div>
 
-                                <div class="col-md-10">
+                                <div class="col-md-9" >
 
-                                    <h2 class="card-title" style="font-size: 30px;"><?= $questionRow['question_title']; ?></h2>
-                                    <p class="card-text" style="font-size: 25px;"><?= $questionRow['question_body']; ?> </p>
-                                        <h5 class="text-muted modified-text"> Tags:
+                                    <h2 class="card-title" style="font-size: 1.4rem;"><?= $questionRow['question_title']; ?></h2>
+                                    <p class="card-text" style="font-size: 1.1rem;"><?= $questionRow['question_body']; ?> </p>
+                                        <h6 class="text-muted modified-text"> Tags:
                                             <?php
                                                 $view_question_tags = new Questions_Tags;
                                                 $tags_list = $view_question_tags->getTagsByQuestion($questionRow['question_id']);
@@ -113,7 +113,7 @@ if($_SESSION['logged_in'] != 1){
                                                 }
 
                                             ?>
-                                        </h5>
+                                        </h6>
                                 </div>
                             </div>
 
@@ -123,12 +123,12 @@ if($_SESSION['logged_in'] != 1){
 
                                 <a data-toggle="collapse" href="#Answer<?= $counter; ?>" aria-expanded="false"
                                    aria-controls="Answer#Answer<?= $counter; ?>">
-                                    <i class="fa fa-commenting-o fa-2x" style="padding-left: 5px"
-                                       aria-hidden="true"></i></a> <i class="fa fa-thumbs-o-up fa-2x"
+                                    <i class="fa fa-commenting-o " style="padding-left: 5px"
+                                       aria-hidden="true"></i></a> <i class="fa fa-thumbs-o-up"
                                                                       style="padding-left: 20px" aria-hidden="true"></i>
                                 <span class="text-muted pull-right"
-                                      style="padding-left: 10px;">  <?= count($answerslist); ?> Comments</span> &nbsp;
-                                <span class="text-muted pull-right">10 Likes</span>
+                                      style="padding-left: 10px; font-size: 1.0rem">  <?= count($answerslist); ?> Comments</span> &nbsp;
+                                <span class="text-muted pull-right" style="font-size: 1.0rem">10 Likes</span>
 
                             </div>
 
@@ -146,13 +146,13 @@ if($_SESSION['logged_in'] != 1){
                                     <div class="col-md-10">
                                         <form id="Commentss" action="postAnswer.php" method="POST" >
 
-                                            <input type="text" name="answer_text" id="inputbox">
+                                            <input type="text" placeholder="Write an Answer" name="answer_text" id="inputbox">
 
                                             <input type="hidden" id="question_id" name="question_id"
                                                    value="<?= $questionRow['question_id']; ?>"/>
                                             <input type="hidden" id="user_id" name="user_id"
                                                    value="<?= $_SESSION['user_id']; ?>"/>
-                                            <input type="submit" value="Submit Answer" />
+
 
                                         </form>
                                     </div>
@@ -177,33 +177,31 @@ if($_SESSION['logged_in'] != 1){
 
                                         ?>
 
-                                        <div class="hello">
+
                                             <br>
-                                            <div class="row">
-                                                <div class="col-md-1 space">
+                                            <div class="row" style="margin-top: 5px; margin-left: 20px;">
+                                                <div class="col-md-1 space widthedited  " style="padding-left: 20px;" >
                                                     <img src="img/profile-pictures.png" class="input-profile-image1">
                                                 </div>
 
+                                                <div id="ratingbox1" >
+                                                    <div style="padding-bottom: 30px;">
+                                                    <div class="col-md-11 widthedited" style="padding-bottom: 30px;>
 
-                                                <div id="ratingbox1">
-                                                    <div class="col-md-11">
-
-                                                        <a href="#"><b style="font-size: 24px;"> <a
+                                                        <a href="#"><b"> <a
                                                                         href="#"><?= $answer_owner->getUsername(); ?>
-                                                            </b></a> <?= $answer['answer_text']; ?>  </div>
-
+                                                                </b></a> <a style="font-size: 0.9rem;"> <?= $answer['answer_text']; ?></a>  </div>
                                                 </div>
-
-
+                                                </div>
                                             </div>
 
-                                        </div>
-                                        ///////////////
+
+
+
+
+
                                         <?php
-                                            if ($commentsList){
-                                                foreach ($commentsList as $commentRow) {
-                                                    $comment_owner = new User;
-                                                    $comment_owner->getUserInfoFromDatabase($commentRow['comment_owner']);
+
                                                     $randomNum = rand();
 
 
@@ -213,36 +211,45 @@ if($_SESSION['logged_in'] != 1){
                                                         <div class="reply"
                                                              style="margin-left:110px;font-size: 16px; margin-top: 3px;">
                                                             <!-- comments answer-->
-                                                            <a data-toggle="collapse" class="float-left"
-                                                               href="#AnswersComments<?= $randomNum; ?>"
+                                                            <div class=" replycomments" class="float-right">
+                                                            <a   style="font-size: 0.7rem;" data-toggle="collapse"
+                                                               href="#AnswersComments<?= $randomNum =rand(); ?>"
                                                                aria-expanded="false"
                                                                style="padding-right:5px;"
                                                                aria-controls="#AnswersComments<?= $randomNum; ?>">Reply </a>
-                                                            <div class="text-muted float-left"> 5 Comments</div>
+                                                            <div class="text-muted float-right" style="font-size: 0.7rem; padding-left: 5px;" > 5 Comments</div>
+                                                            </div>
                                                         </div>
 
 
                                                         <div class="row">
-                                                            <div class="collapse answercard11"
+                                                            <div class="collapse answercard11 float-right"
                                                                  id="AnswersComments<?= $randomNum; ?>">
+                                                                <?php
+                                                                    if ($commentsList){
+                                                                        foreach ($commentsList as $commentRow) {
+                                                                            $comment_owner = new User;
+                                                                            $comment_owner->getUserInfoFromDatabase($commentRow['comment_owner']);
+                                                                ?>
+
                                                                 <div class="row"
                                                                      style="margin-left: 50px; margin-top: 10px;">
 
                                                                     <div class="row">
                                                                         <div class="col-md-1 space">
                                                                             <img src="img/profile-pictures.png"
-                                                                                 style="height: 35px;width: 35px;margin-left: 30px;margin-top: 10px;">
+                                                                                 style="height: 30px;width: 30px;margin-left: 30px;margin-top: 0px;">
                                                                         </div>
 
 
                                                                         <div id="ratingbox3"
-                                                                             style="  border: 2px solid #f7f7f7;padding: 10px;background-color: #f7f7f7;border-radius: 25px;width: 600px;margin-bottom: 20px;">
+                                                                             style="  border: 2px solid #f7f7f7;padding: 5px;background-color: #f7f7f7;border-radius: 25px;width: 100%px;margin-bottom: 20px;">
                                                                             <div class="col-md-11">
 
-                                                                                <a href="#"><b style="font-size: 20px;">
+                                                                                <a href="#"><b style="font-size: 0.9rem;">
                                                                                         <a
                                                                                                 href="#"><?= $comment_owner->getUsername(); ?>
-                                                                                    </b></a><?= $commentRow['comment_text']; ?>
+                                                                                    </b></a><a style="font-size: 0.9rem;"><?= $commentRow['comment_text']; ?></a>
                                                                             </div>
 
                                                                         </div>
@@ -251,14 +258,16 @@ if($_SESSION['logged_in'] != 1){
                                                                     </div>
 
                                                                 </div>
+                                                                            <?php
+                                                                        }
 
-
+                                                                    }?>
                                                                 <div class="row" style="margin-left: 50px;">
 
                                                                     <div class="col-md-1">
 
                                                                         <img src="img/profile-pictures.png"
-                                                                             style="height: 35px;width: 35px;margin-left: 20px;">
+                                                                             style="height: 30px;width: 30px;margin-left: 20px;">
 
                                                                     </div>
 
@@ -269,14 +278,13 @@ if($_SESSION['logged_in'] != 1){
                                                                                    value=""
                                                                                    placeholder="Write a comment.."
                                                                                    class="removehighlight"
-                                                                                   style="width:600px;  border-radius: 25px;background-color: #f7f7f7;padding-bottom: 12px;height: 40px;font-size: 17px;outline-width: 0;">
+                                                                                   style="width: 100%;  border-radius: 25px;background-color: #f7f7f7;padding-bottom: 12px;height: 30px;font-size: 17px; padding:3px;outline-width: 0;">
                                                                             <input type="hidden" name="answer_id"
                                                                                    value="<?= $answer['answer_id'] ?>">
                                                                             <input type="hidden"
                                                                                    value="<?= $_SESSION['user_id']; ?>"
                                                                                    name="user_id">
-                                                                            <input type="submit" value="Submit Comment"
-                                                                                   name="submitComment">
+
 
                                                                         </form>
 
@@ -287,62 +295,8 @@ if($_SESSION['logged_in'] != 1){
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <?php
-                                                }
-
-                                            }else{
-                                                // if there is no comment
-                                                $randomNum = rand();
-
-                                                ?>
-                                                <div class="row">
-
-                                                    <div class="reply"
-                                                         style="margin-left:110px;font-size: 16px; margin-top: 3px;">
-                                                        <!-- comments answer-->
-                                                        <a data-toggle="collapse" class="float-left"
-                                                           href="#AnswersComments<?= $randomNum; ?>" aria-expanded="false"
-                                                           style="padding-right:5px;"
-                                                           aria-controls="#AnswersComments<?= $randomNum; ?>">Reply </a>
-                                                        <div class="text-muted float-left"> 5 Comments</div>
-                                                    </div>
 
 
-                                                    <div class="row">
-                                                        <div class="collapse answercard11"
-                                                             id="AnswersComments<?= $randomNum; ?>">
-
-                                                            <div class="row" style="margin-left: 50px;">
-
-                                                                <div class="col-md-1">
-
-                                                                    <img src="img/profile-pictures.png"
-                                                                         style="height: 35px;width: 35px;margin-left: 20px;">
-
-                                                                </div>
-
-                                                                <div class="col-md-11">
-                                                                    <form action="postCommentForAnswer.php" method="post">
-                                                                        <input type="text" name="comment_text"
-                                                                               value="" placeholder="Write a comment.." class="removehighlight"
-                                                                               style="width:600px;  border-radius: 25px;background-color: #f7f7f7;padding-bottom: 12px;height: 40px;font-size: 17px;outline-width: 0;">
-                                                                        <input type="hidden" name="answer_id" value="<?= $answer['answer_id'] ?>">
-                                                                        <input type="hidden" value="<?= $_SESSION['user_id']; ?>" name="user_id">
-                                                                        <input type="submit" value="Submit Comment" name="submitComment">
-
-                                                                    </form>
-
-                                                                </div>
-
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                            }
-                                        ?>
-                                        //////////////
                                         <?php
                                     }
                                 }

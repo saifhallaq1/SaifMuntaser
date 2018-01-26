@@ -33,7 +33,7 @@ if($_SESSION['logged_in'] != 1){
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="ArticlesPagezoom">
 
 <head>
 
@@ -48,6 +48,8 @@ if($_SESSION['logged_in'] != 1){
     <?php
     include_once("header1.php")
     ?>
+
+
 
 </head>
 
@@ -73,9 +75,9 @@ include_once("header.php")
         <div class="col-md-9">
 
             <div class="col-md-12">
-                <div class="filter" style="margin-top: 15px;padding-left: 330px;">
-          <span style="font-size:35px;">Please select the Category : <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                <option selected style="font-size:20px;"> Choose...</option>
+                <div class="filter" style="margin-top: 15px;">
+          <span style="font-size:1.2rem;">Please select the Category : <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                <option selected style="font-size:1.5rem;"> Choose...</option>
                 <option value="1">Information Techology</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
@@ -92,20 +94,20 @@ include_once("header.php")
                         <div class="row">
 
                             <div class="col-md-2 course-img" >
-                                <img src="img/15356507_1364357016940040_4438434916611401275_n.jpg" class="rounded-circle" style="margin-left:25px; margin-bottom: 5px;height: 150px; width: 150px;"  >
+                                <img src="img/15356507_1364357016940040_4438434916611401275_n.jpg" class="rounded-circle" style="margin-left:25px; margin-bottom: 5px;height: 90px; width: 90px;"  >
                                 <?php echo  '<div class="text-center" style="font-size: 25px;padding-left: 20px;" ><a id="111" href="viewProfile.php?user_id='. $article_owner->getUser_id() .'">'. $article_owner->getUsername() . '</a></div>';?>
                                 <div class="course-stars card-stars1 text-center" style="padding-left: 20px;">
                                     <div class="review-block-rate" >
 
-                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star editedstarts"  aria-hidden="true"></span>
 
-                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star editedstarts" aria-hidden="true"></span>
 
-                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star editedstarts" aria-hidden="true"></span>
 
-                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star editedstarts" aria-hidden="true"></span>
 
-                                        <span class="fa fa-star fa-2x" aria-hidden="true"></span>
+                                        <span class="fa fa-star editedstarts" aria-hidden="true"></span>
 
                                     </div>
                                 </div>
@@ -129,10 +131,10 @@ include_once("header.php")
                                 ?>
 
 
-                                <h6 class="card-subtitle mb-2 text-muted" style="margin-top: 20px;">Tags: <span class="badge badge-primary">PHP</span></h6><div class=" text-muted float-right" style="padding-left: 20px;"><?= $name['dateOfCreation'];?></div>
+                                <h6 class="card-subtitle mb-2 text-muted" style="margin-top: 20px;">Tags: <span class="badge badge-primary">PHP</span></h6><div class=" text-muted float-right" style="padding-left: 20px;font-size: 15px;"><?= $name['dateOfCreation'];?></div>
 
                                 <div class="articlebutton ">
-                                    <button type="button" class="btn btn-primary"><?php echo '<a href="articlePage.php?article_id='. $name['article_id'] .'">View Article</a>'; ?></button>
+                                    <button type="button" class="btn btn-primary btn-sm"><?php echo '<a href="articlePage.php?article_id='. $name['article_id'] .'">View Article</a>'; ?></button>
                                 </div>
 
                             </div>
@@ -159,10 +161,10 @@ include_once("header.php")
 
                 <div class="container">
                     <div class="img">
-                        <img src="img/icon-articles.png" style="padding-bottom: 10px;">
+                        <img src="img/icon-articles.png" style="padding-bottom: 10px; height:130px;width: 130px;">
                     </div>
 
-                    <a href="post_article.php"> <button type="button" class="btn btn-danger" style="margin-left: 35px;"> Write an Article</button></a>
+                    <a href="post_article.php"> <button type="button" class="btn btn-danger" style="margin-left: 0px;"> Write an Article</button></a>
 
                 </div>
             </div>

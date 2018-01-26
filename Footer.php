@@ -21,15 +21,15 @@
             </div>
 
 
-            <div class="col-md-2">
+            <div class="col-md-3">
 
                 <h2 class="footerlist1">Contact Us</h2>
 
-                <i class="fa fa-facebook-square footerlist fa-2x" style="color: white; aria-hidden="true"><span style="font-size:20px; color:white; vertical-align: middle;"> Facebook.com/LEEO</span></i> <br>
+                <i class="fa fa-facebook-square " style="color: white; aria-hidden="true"><span style="color:white; vertical-align: middle;"> Facebook.com/LEEO</span></i> <br>
 
 
-                <i class="fa fa-envelope fa-2x"style="color: white;" aria-hidden="true"><span style="font-size:20px; color:white; vertical-align: middle;"> support@LEEO.com</span></i><br>
-                <i class="fa fa-phone-square fa-2x" style="color: white;aria-hidden="true"> <span style="font-size:20px; color:white; vertical-align: middle;"> 0799999999</span></i>
+                <i class="fa fa-envelope "style="color: white;" aria-hidden="true"><span style="color:white; vertical-align: middle;"> support@LEEO.com</span></i><br>
+                <i class="fa fa-phone-square " style="color: white;aria-hidden="true"> <span style="color:white; vertical-align: middle;"> 0799999999</span></i>
 
 
             </div>

@@ -79,7 +79,11 @@ if($_SESSION['logged_in'] != 1){
     include_once ("header1.php")
     ?>
 
-
+    <style>
+        html{
+            zoom: 80%;
+        }
+    </style>
 </head>
 
 <body>
